@@ -9,6 +9,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 
 # ROADMAP ¯\\_(ツ)_/¯
 
+  * TDD \o/
   * CRUD athetes
   * CRUD competition type (combined or single mode?)
   * CRUD for athetes score by modality
@@ -21,3 +22,4 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 # Reference
 
   * [Tutorial for Gatsby] (https://www.gatsbyjs.com/docs/tutorial/ "Gatsby tutorial")
+  * [Test tutorias for Gatsby] (https://www.gatsbyjs.com/docs/how-to/testing/unit-testing/ "Testing tutorias")
