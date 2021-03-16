@@ -1,0 +1,34 @@
+{
+  "name": "resin-score",
+  "version": "0.0.1",
+  "description": "SPA to keep sports climbing score from athletes for speed, boulder, lead and combined",
+  "main": "index.js",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmiguita/resin-score.git"
+  },
+  "author": "",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/wmiguita/resin-score/issues"
+  },
+  "homepage": "https://github.com/wmiguita/resin-score#readme",
+  "dependencies": {
+    "gatsby": "^3.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "gatsby-cli": "^3.0.0",
+    "prettier": "2.2.1"
+  }
+}
