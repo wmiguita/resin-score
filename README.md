@@ -22,4 +22,6 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 # Reference
 
   * [Tutorial for Gatsby] (https://www.gatsbyjs.com/docs/tutorial/ "Gatsby tutorial")
-  * [Test tutorias for Gatsby] (https://www.gatsbyjs.com/docs/how-to/testing/unit-testing/ "Testing tutorias")
+  * [Test tutorias for Gatsby] (https://www.gatsbyjs.com/docs/how-to/testing/unit-testing/ "Testing tutorial")
+  * [Jest cheat sheet] (https://devhints.io/jest "Jest cheat sheet")
+  * [Material-UI] (https://material-ui.com/getting-started/templates/ "Material-UI docs")
