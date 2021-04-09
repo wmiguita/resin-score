@@ -9,8 +9,9 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 
 # ROADMAP ¯\\_(ツ)_/¯
 
-  * TDD \o/
-  * CRUD athetes
+  * TDD \o/ (WIP)
+  * CRUD athetes (WIP)
+  * intl8 :thinking:
   * CRUD competition type (combined or single mode?)
   * CRUD for athetes score by modality
   * display knockout style for speed
