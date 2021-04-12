@@ -4,7 +4,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 ## Tech
 
 * Gatsby
-* React
+* React, redux
 * Material-UI
 
 # ROADMAP ¯\\_(ツ)_/¯
@@ -26,3 +26,4 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
   * [Test tutorias for Gatsby] (https://www.gatsbyjs.com/docs/how-to/testing/unit-testing/ "Testing tutorial")
   * [Jest cheat sheet] (https://devhints.io/jest "Jest cheat sheet")
   * [Material-UI] (https://material-ui.com/getting-started/templates/ "Material-UI docs")
+  * [Redux] (https://redux.js.org/tutorials/essentials/part-1-overview-concepts "Redux")
