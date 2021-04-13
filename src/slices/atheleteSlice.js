@@ -12,6 +12,10 @@ export const atheleteSlice = createSlice({
   }
 });
 
+// exporting actions
 export const { addAthelete } = atheleteSlice.actions
+
+// exporting states
+export const atheleteList = state => state.atheleteSlice.list
 
 export default atheleteSlice.reducer
