@@ -1,7 +1,18 @@
 import React from "react"
+import {
+  Container,
+  Paper,
+  TextField
+} from "@material-ui/core"
 
 export default function AtheletesPage() {
   return (
-    <h1>Atheletes Page</h1>
+    <Container>
+      <Paper>
+        <form className="atheleteForm">
+          <TextField id="athelete-name" label="Name" />
+        </form>
+      </Paper>
+    </Container>
   )
 }

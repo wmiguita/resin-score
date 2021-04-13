@@ -2,6 +2,8 @@
 
 exports[`Home renders correctly 1`] = `
 <div
-  className="home"
-/>
+  className="MuiContainer-root home MuiContainer-maxWidthLg"
+>
+  index
+</div>
 `;

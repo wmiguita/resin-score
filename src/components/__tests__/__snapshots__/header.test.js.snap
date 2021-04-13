@@ -12,6 +12,7 @@ exports[`Header should render Header 1`] = `
       className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}

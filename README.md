@@ -9,16 +9,15 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 
 # ROADMAP ¯\\_(ツ)_/¯
 
-  * TDD \o/ (WIP)
   * CRUD athetes (WIP)
   * intl8 :thinking:
+  * use header as contextualized tab menu for CRUD pages
   * CRUD competition type (combined or single mode?)
   * CRUD for athetes score by modality
   * display knockout style for speed
   * display combined score
   * display boulder score
   * display lead score
-  * 
 
 # Reference
 
@@ -27,3 +26,4 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
   * [Jest cheat sheet] (https://devhints.io/jest "Jest cheat sheet")
   * [Material-UI] (https://material-ui.com/getting-started/templates/ "Material-UI docs")
   * [Redux] (https://redux.js.org/tutorials/essentials/part-1-overview-concepts "Redux")
+  * [Testing components connected with Redux] (https://www.robinwieruch.de/react-connected-component-test "Testing")

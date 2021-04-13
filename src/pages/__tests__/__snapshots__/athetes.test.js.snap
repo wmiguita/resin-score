@@ -1,7 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Atheletes page renders athelete page 1`] = `
-<h1>
-  Atheletes Page
-</h1>
+<div
+  className="MuiContainer-root MuiContainer-maxWidthLg"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <form
+      className="atheleteForm"
+    >
+      <div
+        className="MuiFormControl-root MuiTextField-root"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
+          data-shrink={false}
+          htmlFor="athelete-name"
+          id="athelete-name-label"
+        >
+          Name
+        </label>
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            autoFocus={false}
+            className="MuiInputBase-input MuiInput-input"
+            disabled={false}
+            id="athelete-name"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 `;

@@ -1,18 +1,38 @@
 import React from "react"
+import { Provider } from "react-redux"
 import renderer from "react-test-renderer"
+import { store } from "mock-store"
 
 import Layout from "../layout"
 
-describe( "Layout", () => {
-  it( "renders Layout with children", () => {
-    const layout = renderer.create( <Layout><div>child</div></Layout> ).toJSON()
+let layout
 
-    expect( layout ).toMatchSnapshot()
+describe( "Layout", () => {
+  beforeEach(() => {
+    layout = renderer.create(
+      <Provider store={ store }>
+        <Layout>
+          <div>child</div>
+        </Layout>
+      </Provider>
+    )
+  })
+
+  it( "renders Layout with children", () => {
+    const tree = layout.toJSON()
+
+    expect( tree ).toMatchSnapshot()
   })
 
   it( "renders Layout with props", () => {
-    const layout = renderer.create( <Layout test={ "test" }><div></div></Layout> ).toJSON()
+    const propedLayout = renderer.create( 
+      <Provider store={ store }>
+        <Layout test={ "test" }>
+          <div></div>
+        </Layout>
+      </Provider>
+    ).toJSON()
 
-    expect( layout ).toMatchSnapshot()
+    expect( propedLayout ).toMatchSnapshot()
   })
 })
