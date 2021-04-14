@@ -3,7 +3,7 @@ import React from "react"
 import Header from "./header"
 import SideMenu from "./sideMenu"
 
-import themeStyle from "../themeStyle"
+import themeStyle from "../styles/themeStyle"
 
 //TODO: check if it has to be responsible for detecting wich page is selected?
 export default function Layout({ children }) {

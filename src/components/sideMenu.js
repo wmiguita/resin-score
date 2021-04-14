@@ -12,7 +12,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 
 import { ROUTES } from "../constants"
 import { drawerOpen, toggleDrawer } from "../slices"
-import themeStyle from "../themeStyle"
+import themeStyle from "../styles/themeStyle"
 
 //TODO: intl8 for text
 export default function SideMenu( props ) {
