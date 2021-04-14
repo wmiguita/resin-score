@@ -10,6 +10,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 # ROADMAP ¯\\_(ツ)_/¯
 
   * CRUD athetes (WIP)
+  * adjust layout, small margin to body and box shadow over content
   * intl8 :thinking:
   * highlight selected page on sidemenu by url path
   * use header as contextualized tab menu for CRUD pages

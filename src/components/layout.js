@@ -1,16 +1,13 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
 
 import Header from "./header"
 import SideMenu from "./sideMenu"
 
-const useStyles = makeStyles(( theme ) => ({
-  appBarSpacer: theme.mixins.toolbar
-}))
+import themeStyle from "../themeStyle"
 
 //TODO: check if it has to be responsible for detecting wich page is selected?
 export default function Layout({ children }) {
-  const classes = useStyles()
+  const classes = themeStyle()
 
   return (
     <div className="page-layout-wrapper">

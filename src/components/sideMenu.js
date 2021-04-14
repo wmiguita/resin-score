@@ -12,9 +12,11 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 
 import { ROUTES } from "../constants"
 import { drawerOpen, toggleDrawer } from "../slices"
+import themeStyle from "../themeStyle"
 
 //TODO: intl8 for text
 export default function SideMenu( props ) {
+  const classes = themeStyle()
   const dispatch = useDispatch()
   const drawer = () => dispatch( toggleDrawer() )
   const isDrawerOpen = useSelector( drawerOpen )
@@ -25,7 +27,7 @@ export default function SideMenu( props ) {
 
   return (
     <Drawer open={ isDrawerOpen } >
-      <div style={ { "text-align": "right" } }>
+      <div className={ classes.sideMenuClose }>
         <IconButton onClick={ drawer }>
           <ChevronLeftIcon />
         </IconButton>

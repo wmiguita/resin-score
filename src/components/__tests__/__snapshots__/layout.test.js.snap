@@ -50,7 +50,7 @@ exports[`Layout renders Layout with children 1`] = `
     className="content"
   >
     <div
-      className="makeStyles-appBarSpacer-1"
+      className="makeStyles-appBarSpacer-2"
     />
     <div>
       child
@@ -109,7 +109,7 @@ exports[`Layout renders Layout with props 1`] = `
     className="content"
   >
     <div
-      className="makeStyles-appBarSpacer-1"
+      className="makeStyles-appBarSpacer-2"
     />
     <div />
   </main>
