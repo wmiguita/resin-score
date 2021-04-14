@@ -7,11 +7,11 @@ import {
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 
-import { toogleDrawer } from "../slices"
+import { toggleDrawer } from "../slices"
 
 export default function Header({ props }) {
   const dispatch = useDispatch()
-  const drawer = () => dispatch( toogleDrawer() )
+  const drawer = () => dispatch( toggleDrawer() )
 
   return (
     <AppBar>

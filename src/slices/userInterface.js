@@ -7,14 +7,14 @@ export const userInterface = createSlice({
     drawerOpen: false
   },
   reducers: {
-    toogleDrawer: state => {
+    toggleDrawer: state => {
       state.drawerOpen = !state.drawerOpen
     }
   }
 })
 
 // exporting actions
-export const { toogleDrawer } = userInterface.actions
+export const { toggleDrawer } = userInterface.actions
 
 // exporting states
 export const drawerOpen = state => state.userInterface.drawerOpen
