@@ -11,6 +11,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 
   * CRUD athetes (WIP)
   * intl8 :thinking:
+  * highlight selected page on sidemenu by url path
   * use header as contextualized tab menu for CRUD pages
   * CRUD competition type (combined or single mode?)
   * CRUD for athetes score by modality

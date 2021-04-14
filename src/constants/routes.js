@@ -1,3 +1,4 @@
 export const ROUTES = {
-  ATHETES: "/atheletes"
+  ATHELETES: "/atheletes",
+  HOME: "/"
 }
