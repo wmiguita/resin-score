@@ -15,7 +15,7 @@ import { drawerOpen, toggleDrawer } from "../slices"
 import themeStyle from "../styles/themeStyle"
 
 //TODO: intl8 for text
-export default function SideMenu( props ) {
+export function SideMenu( props ) {
   const classes = themeStyle()
   const dispatch = useDispatch()
   const drawer = () => dispatch( toggleDrawer() )
@@ -42,3 +42,5 @@ export default function SideMenu( props ) {
     </Drawer>
   )
 }
+
+export default SideMenu

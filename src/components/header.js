@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 
 import { toggleDrawer } from "../slices"
 
-export default function Header({ props }) {
+export function Header({ props }) {
   const dispatch = useDispatch()
   const drawer = () => dispatch( toggleDrawer() )
 
@@ -27,5 +27,5 @@ export default function Header({ props }) {
       </Toolbar>
     </AppBar>
   )
-
 }
+export default Header

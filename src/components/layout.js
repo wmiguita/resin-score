@@ -6,17 +6,19 @@ import SideMenu from "./sideMenu"
 import themeStyle from "../styles/themeStyle"
 
 //TODO: check if it has to be responsible for detecting wich page is selected?
-export default function Layout({ children }) {
+export function Layout({ children }) {
   const classes = themeStyle()
 
   return (
-    <div className="page-layout-wrapper">
+    <React.Fragment>
       <Header />
       <SideMenu />
       <main className="content">
-        <div className={classes.appBarSpacer} />
+        <div className={ classes.appBarSpacer } />
         { children }
       </main>
-    </div>
+    </React.Fragment>
   )
 }
+
+export default Layout
