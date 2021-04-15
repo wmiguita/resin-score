@@ -6,7 +6,7 @@ export const AtheleteTabs = ( props ) => {
   const { selected, onChange } = props
   return (
     <Tabs value={ selected } onChange={ onChange } aria-label={ "Athelete menu" }>
-      <Tab label="Listing" id="listing" aria-controls="list-atheletes" />
+      <Tab label="Atheletes" id="atheletes-list" aria-controls="atheletes-list" />
       <Tab label="Manage" id="manage" aria-controls="manage-athelete" />
     </Tabs>
   )

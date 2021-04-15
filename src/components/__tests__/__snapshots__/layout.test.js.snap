@@ -42,11 +42,6 @@ Array [
           </svg>
         </span>
       </button>
-      <h1
-        className="MuiTypography-root MuiTypography-h6"
-      >
-        Atheletes
-      </h1>
       <div
         className="MuiTabs-root"
       >
@@ -67,11 +62,11 @@ Array [
             role="tablist"
           >
             <button
-              aria-controls="list-atheletes"
+              aria-controls="atheletes-list"
               aria-selected={true}
               className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected"
               disabled={false}
-              id="listing"
+              id="atheletes-list"
               onBlur={[Function]}
               onClick={[Function]}
               onDragLeave={[Function]}
@@ -91,7 +86,7 @@ Array [
               <span
                 className="MuiTab-wrapper"
               >
-                Listing
+                Atheletes
               </span>
               <span
                 className="PrivateTabIndicator-root-9 PrivateTabIndicator-colorSecondary-11 MuiTabs-indicator"
@@ -186,11 +181,6 @@ Array [
           </svg>
         </span>
       </button>
-      <h1
-        className="MuiTypography-root MuiTypography-h6"
-      >
-        Atheletes
-      </h1>
       <div
         className="MuiTabs-root"
       >
@@ -211,11 +201,11 @@ Array [
             role="tablist"
           >
             <button
-              aria-controls="list-atheletes"
+              aria-controls="atheletes-list"
               aria-selected={true}
               className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected"
               disabled={false}
-              id="listing"
+              id="atheletes-list"
               onBlur={[Function]}
               onClick={[Function]}
               onDragLeave={[Function]}
@@ -235,7 +225,7 @@ Array [
               <span
                 className="MuiTab-wrapper"
               >
-                Listing
+                Atheletes
               </span>
               <span
                 className="PrivateTabIndicator-root-9 PrivateTabIndicator-colorSecondary-11 MuiTabs-indicator"

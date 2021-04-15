@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import {
   AppBar,
   IconButton,
-  Toolbar,
-  Typography
+  Toolbar
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 
@@ -28,7 +27,6 @@ export function Header({ props }) {
         >
           <MenuIcon />
         </IconButton>
-        <Typography component="h1" variant="h6">Atheletes</Typography>
         <AtheleteTabs selected={ tab } onChange={ tabChange }/>
       </Toolbar>
     </AppBar>

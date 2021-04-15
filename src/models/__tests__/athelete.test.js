@@ -21,4 +21,11 @@ describe( "Athelete model", () => {
 
     expect( athelete.id ).toEqual( uuid )
   })
+
+  it( "should get plain athelete object", () => {
+    const plain = { id: "testid", name: "test name" }
+    const athelete = new Athelete( plain )
+
+    expect( athelete.toJSON() ).toEqual( plain )
+  })
 })

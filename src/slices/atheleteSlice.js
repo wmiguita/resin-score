@@ -7,7 +7,7 @@ export const atheleteSlice = createSlice({
   },
   reducers: {
     addAthelete: ( state, action ) => {
-      state.list.push( action.athelete )
+      state.list.push( action.payload )
     }
   }
 });

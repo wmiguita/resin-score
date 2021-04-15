@@ -5,4 +5,11 @@ export class Athelete {
     this.id = ( attrs.id ) ? attrs.id : uuidv4()
     this.name = attrs.name
   }
+
+  toJSON() {
+    return {
+       id: this.id,
+       name: this.name
+    }
+  }
 }

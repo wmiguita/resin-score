@@ -2,9 +2,8 @@
 
 exports[`TabPanel should render TabPanel 1`] = `
 <div
-  hidden={false}
+  className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+  hidden={true}
   role="tabpanel"
->
-  <input />
-</div>
+/>
 `;

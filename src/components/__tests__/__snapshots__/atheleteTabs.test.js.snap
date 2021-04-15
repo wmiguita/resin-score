@@ -21,11 +21,11 @@ exports[`AtheleteTabs should render athele tab options 1`] = `
       role="tablist"
     >
       <button
-        aria-controls="list-atheletes"
+        aria-controls="atheletes-list"
         aria-selected={false}
         className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
         disabled={false}
-        id="listing"
+        id="atheletes-list"
         onBlur={[Function]}
         onClick={[Function]}
         onDragLeave={[Function]}
@@ -45,7 +45,7 @@ exports[`AtheleteTabs should render athele tab options 1`] = `
         <span
           className="MuiTab-wrapper"
         >
-          Listing
+          Atheletes
         </span>
       </button>
       <button
