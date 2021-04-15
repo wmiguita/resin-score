@@ -7,6 +7,7 @@ export const store = mockStore({
   atheletes: {
   },
   userInterface: {
-    drawerOpen: false
+    drawerOpen: false,
+    selectedTab: 0
   }
 })

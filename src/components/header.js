@@ -1,17 +1,21 @@
 import React from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import {
   AppBar,
   IconButton,
-  Toolbar
+  Toolbar,
+  Typography
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 
-import { toggleDrawer } from "../slices"
+import AtheleteTabs from "./atheleteTabs"
+import { selectTab, selectedTab, toggleDrawer } from "../slices"
 
 export function Header({ props }) {
   const dispatch = useDispatch()
   const drawer = () => dispatch( toggleDrawer() )
+  const tabChange = ( e, tab ) => dispatch( selectTab( tab ))
+  const tab = useSelector( selectedTab )
 
   return (
     <AppBar>
@@ -24,6 +28,8 @@ export function Header({ props }) {
         >
           <MenuIcon />
         </IconButton>
+        <Typography component="h1" variant="h6">Atheletes</Typography>
+        <AtheleteTabs selected={ tab } onChange={ tabChange }/>
       </Toolbar>
     </AppBar>
   )

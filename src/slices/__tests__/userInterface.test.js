@@ -1,5 +1,5 @@
 import slice, {
-  goTo,
+  selectTab,
   toggleDrawer
 } from "../userInterface"
 
@@ -19,6 +19,15 @@ describe( "userInterface slice", () => {
     const result = slice( initialState, action )
 
     expect( result.drawerOpen ).toBe( false )
+  })
+
+  it( "should change selectedTab", () => {
+    const tab = 10
+    const action = selectTab( tab )
+    const initialState = { selectedTab: 0 }
+    const result = slice( initialState, action )
+
+    expect( result.selectedTab ).toEqual( tab )
   })
 
   it.skip( "should change path", () => {
