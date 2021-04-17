@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import AccountCircleIcon from "@material-ui/icons/AccountCircle"
+import DeleteIcon from "@material-ui/icons/Delete"
 import {
   Button,
   Container,
   Grid,
-  List, ListItem, ListItemText,
+  IconButton,
+  List, ListItem, ListItemText, ListItemSecondaryAction,
   TextField
 } from "@material-ui/core"
 
@@ -13,7 +15,7 @@ import { Athelete } from "../models"
 import themeStyle from "../styles/themeStyle"
 import { TabPanel } from "../components"
 import { Title } from "../components"
-import { addAthelete, atheleteList, selectedTab } from "../slices"
+import { addAthelete, atheleteList, selectTab, selectedTab } from "../slices"
 
 export default function AtheletesPage() {
   const dispatch = useDispatch()
@@ -22,26 +24,35 @@ export default function AtheletesPage() {
   const tab = useSelector( selectedTab )
   const list = useSelector( atheleteList )
   const [ formName, setFormName ] = useState( "" )
-  const add = () => dispatch( addAthelete( (new Athelete({ name: formName } )).toJSON()))
+  const add = () => {
+    setFormName( "" )
+    dispatch( addAthelete( (new Athelete({ name: formName } )).toJSON()))
+    dispatch( selectTab( 0 ) )
+  }
 
   const setName = ( event ) => { setFormName( event.target.value ) }
 
   return (
     <Container>
+
       <TabPanel index={ 0 } value={ tab } >
         <Title>{ "Athelete list" }</Title>
-        <List dense>
+        <List>
           {
-            list.map(( athelete ) => {
+            list.map( athelete => {
               return (
-                 <ListItem>
-                   <ListItemText id={ athelete.id } primary={ athelete.name } />
-                 </ListItem>
+                <ListItem>
+                  <ListItemText primary={ athelete.name } />
+                  <ListItemSecondaryAction>
+                    <IconButton aria-label="delete"><DeleteIcon /></IconButton>
+                  </ListItemSecondaryAction>
+                </ListItem>
               )
             })
           }
         </List>
       </TabPanel>
+
       <TabPanel index={ 1 } value={ tab } >
         <Title>{ "Athelete subscription" }</Title>
         <form className={ classes.form }>
@@ -59,6 +70,7 @@ export default function AtheletesPage() {
           </div>
         </form>
       </TabPanel>
+
     </Container>
   )
 }

@@ -7,13 +7,16 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 * React, redux
 * Material-UI
 
+# Last
+  DataGrid "nodeParent of null" on tests
+
+
 # ROADMAP ¯\\_(ツ)_/¯
 
   * CRUD athetes (WIP)
-  * adjust layout, small margin to body and box shadow over content
+  * use header as contextualized tab menu for CRUD pages
   * intl8 :thinking:
   * highlight selected page on sidemenu by url path
-  * use header as contextualized tab menu for CRUD pages
   * CRUD competition type (combined or single mode?)
   * CRUD for athetes score by modality
   * display knockout style for speed
