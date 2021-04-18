@@ -1,49 +1,69 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import AccountCircleIcon from "@material-ui/icons/AccountCircle"
+import AddIcon from "@material-ui/icons/Add"
+import EditIcon from "@material-ui/icons/Edit"
 import DeleteIcon from "@material-ui/icons/Delete"
 import {
-  Button,
   Container,
-  Grid,
+  Fab,
   IconButton,
   List, ListItem, ListItemText, ListItemSecondaryAction,
-  TextField
+  Paper
 } from "@material-ui/core"
 
-import { Athelete } from "../models"
-import themeStyle from "../styles/themeStyle"
-import { TabPanel } from "../components"
+import themeStyle from "../styles"
 import { Title } from "../components"
-import { addAthelete, atheleteList, selectTab, selectedTab } from "../slices"
+import { AtheleteDialog } from "../components/atheletes"
+import { addAthelete, atheleteList } from "../slices"
 
+const _initialState = {
+  selectedId: null,
+  modalOpen: false
+}
 export default function AtheletesPage() {
   const dispatch = useDispatch()
   const classes = themeStyle()
 
-  const tab = useSelector( selectedTab )
   const list = useSelector( atheleteList )
-  const [ formName, setFormName ] = useState( "" )
-  const add = () => {
-    setFormName( "" )
-    dispatch( addAthelete( (new Athelete({ name: formName } )).toJSON()))
-    dispatch( selectTab( 0 ) )
+  const [ state, setState ] = useState( _initialState )
+  const onSubmit = ( athelete ) => {
+    dispatch( addAthelete( athelete.toJSON() ) )
+    setState( _initialState )
   }
-
-  const setName = ( event ) => { setFormName( event.target.value ) }
+  const openDialog = ( atheleteId ) => {
+    const modalOpen = true
+    setState({ atheleteId, modalOpen })
+  }
+  const closeDialog = () => {
+    setState( _initialState )
+  }
 
   return (
     <Container>
-
-      <TabPanel index={ 0 } value={ tab } >
-        <Title>{ "Athelete list" }</Title>
+      <Paper>
+        <Title>
+          { "Athelete list" }
+          <Fab
+            color="primary"
+            aria-label="add"
+            size="small"
+            onClick={ openDialog.bind( null, state.atheleteId ) }
+            className={ classes.addAction }>
+            <AddIcon />
+          </Fab>
+        </Title>
         <List>
           {
             list.map( athelete => {
               return (
-                <ListItem>
+                <ListItem key={ athelete.id }>
                   <ListItemText primary={ athelete.name } />
                   <ListItemSecondaryAction>
+                    <IconButton
+                      aria-label="edit"
+                      onClick={ openDialog.bind( null, athelete.id ) }>
+                        <EditIcon />
+                    </IconButton>
                     <IconButton aria-label="delete"><DeleteIcon /></IconButton>
                   </ListItemSecondaryAction>
                 </ListItem>
@@ -51,26 +71,13 @@ export default function AtheletesPage() {
             })
           }
         </List>
-      </TabPanel>
 
-      <TabPanel index={ 1 } value={ tab } >
-        <Title>{ "Athelete subscription" }</Title>
-        <form className={ classes.form }>
-          <Grid container spacing={ 1 } className={ classes.formGrid } >
-            <Grid item>
-              <AccountCircleIcon />
-            </Grid>
-            <Grid item>
-              <TextField id="athelete-name" label="Name" onChange={ setName } value={ formName }/>
-            </Grid>
-          </Grid>
-          <div className={ classes.formActions }>
-            <Button variant="outlined">Cancel</Button>
-            <Button color="primary" variant="contained" onClick={ add }>Add</Button>
-          </div>
-        </form>
-      </TabPanel>
-
+        <AtheleteDialog
+          open={ state.modalOpen }
+          atheleteId={ state.selectedId }
+          onSubmit={ onSubmit }
+          onClose={ closeDialog }/>
+      </Paper>
     </Container>
   )
 }

@@ -8,7 +8,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 * Material-UI
 
 # Last
-  DataGrid "nodeParent of null" on tests
+  decide if have to remove tabs menu header and display page name for each page
 
 
 # ROADMAP ¯\\_(ツ)_/¯

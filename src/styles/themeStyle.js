@@ -5,13 +5,17 @@ const themeStyle = makeStyles( theme => ({
   },
   title: {
     color: theme.palette.primary.main,
-    padding: theme.spacing( 2 )
+    overflow: "hidden",
+    padding: theme.spacing( 3, 2 )
   },
   appBarSpacer: theme.mixins.toolbar,
   sideMenuClose: {
     textAlign: "right",
   },
   content: {
+  },
+  addAction: {
+    float: "right"
   },
   form: {
     margin: "0 auto",
