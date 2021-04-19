@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { navigate } from "gatsby"
 import { useDispatch, useSelector } from "react-redux"
 import {
@@ -18,10 +19,11 @@ import themeStyle from "../styles/themeStyle"
 export function SideMenu( props ) {
   const classes = themeStyle()
   const dispatch = useDispatch()
+  const { uri } = props
   const drawer = () => dispatch( toggleDrawer() )
   const isDrawerOpen = useSelector( drawerOpen )
-  const goTo = () => {
-    navigate( ROUTES.ATHELETES );
+  const goTo = ( uri ) => {
+    navigate( uri );
     drawer()
   }
 
@@ -34,7 +36,10 @@ export function SideMenu( props ) {
       </div>
       <Divider />
       <List>
-        <ListItem button onClick={ goTo }>
+        <ListItem
+          button
+          onClick={ goTo.bind( null, ROUTES.ATHELETES ) }
+          selected={ uri === ROUTES.ATHELETES }>
           <ListItemIcon><PersonOutlineIcon /></ListItemIcon>
           <ListItemText >Atheletes</ListItemText>
         </ListItem>
@@ -43,4 +48,7 @@ export function SideMenu( props ) {
   )
 }
 
+SideMenu.propTypes = {
+  uri: PropTypes.string
+}
 export default SideMenu

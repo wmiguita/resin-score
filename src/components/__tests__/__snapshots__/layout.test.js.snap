@@ -180,6 +180,9 @@ Array [
             />
           </svg>
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
       <div
         className="MuiTabs-root"
@@ -228,8 +231,7 @@ Array [
                 Atheletes
               </span>
               <span
-                className="PrivateTabIndicator-root-10 PrivateTabIndicator-colorSecondary-12 MuiTabs-indicator"
-                style={Object {}}
+                className="MuiTouchRipple-root"
               />
             </button>
             <button
@@ -259,8 +261,20 @@ Array [
               >
                 Manage
               </span>
+              <span
+                className="MuiTouchRipple-root"
+              />
             </button>
           </div>
+          <span
+            className="PrivateTabIndicator-root-10 PrivateTabIndicator-colorSecondary-12 MuiTabs-indicator"
+            style={
+              Object {
+                "left": 0,
+                "width": 0,
+              }
+            }
+          />
         </div>
       </div>
     </div>

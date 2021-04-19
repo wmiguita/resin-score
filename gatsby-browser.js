@@ -9,5 +9,5 @@ export const wrapRootElement = ({ element }) => {
   return <Provider store={ store }>{ element }</Provider>
 }
 export const wrapPageElement = ({ element, props }) => {
-  return <Layout {...props}>{ element }</Layout>
+  return <Layout { ...props }>{ element }</Layout>
 }
