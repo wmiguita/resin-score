@@ -41,88 +41,64 @@ exports[`Header should render Header 1`] = `
         </svg>
       </span>
     </button>
-    <div
-      className="MuiTabs-root"
+    <h1
+      className="MuiTypography-root MuiTypography-h6"
     >
-      <div
-        className="MuiTabs-scroller MuiTabs-fixed"
-        onScroll={[Function]}
-        style={
-          Object {
-            "marginBottom": null,
-            "overflow": "hidden",
-          }
-        }
+      
+    </h1>
+  </div>
+</header>
+`;
+
+exports[`Header should render Header with Atheletes title 1`] = `
+<header
+  className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4"
+>
+  <div
+    className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+  >
+    <button
+      aria-label="open drawer"
+      className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiIconButton-label"
       >
-        <div
-          aria-label="Athelete menu"
-          className="MuiTabs-flexContainer"
-          onKeyDown={[Function]}
-          role="tablist"
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <button
-            aria-controls="atheletes-list"
-            aria-selected={true}
-            className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected"
-            disabled={false}
-            id="atheletes-list"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onDragLeave={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="tab"
-            tabIndex={0}
-            type="button"
-          >
-            <span
-              className="MuiTab-wrapper"
-            >
-              Atheletes
-            </span>
-            <span
-              className="PrivateTabIndicator-root-1 PrivateTabIndicator-colorSecondary-3 MuiTabs-indicator"
-              style={Object {}}
-            />
-          </button>
-          <button
-            aria-controls="manage-athelete"
-            aria-selected={false}
-            className="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"
-            disabled={false}
-            id="manage"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onDragLeave={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="tab"
-            tabIndex={-1}
-            type="button"
-          >
-            <span
-              className="MuiTab-wrapper"
-            >
-              Manage
-            </span>
-          </button>
-        </div>
-      </div>
-    </div>
+          <path
+            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+          />
+        </svg>
+      </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
+    </button>
+    <h1
+      className="MuiTypography-root MuiTypography-h6"
+    >
+      Atheletes
+    </h1>
   </div>
 </header>
 `;

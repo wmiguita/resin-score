@@ -11,7 +11,7 @@ export function Layout({ children, uri }) {
 
   return (
     <React.Fragment>
-      <Header />
+      <Header uri={ uri }/>
       <SideMenu uri={ uri }/>
       <main className="content">
         <div className={ classes.appBarSpacer } />

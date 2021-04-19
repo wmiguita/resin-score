@@ -1,20 +1,35 @@
 import React from "react"
-import { useDispatch, useSelector } from "react-redux"
+import PropTypes from "prop-types"
+import { useDispatch } from "react-redux"
 import {
   AppBar,
   IconButton,
-  Toolbar
+  Toolbar, Typography
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 
-import AtheleteTabs from "./atheleteTabs"
-import { selectTab, selectedTab, toggleDrawer } from "../slices"
+import { toggleDrawer } from "../slices"
+import { ROUTES } from "../constants"
 
-export function Header({ props }) {
+const titleHeader = uri => {
+  let text = ""
+
+  switch( uri ) {
+    case ROUTES.ATHELETES:
+      text = "Atheletes"
+      break
+
+    default:
+      break
+  }
+
+  return (
+    <Typography component="h1" variant="h6">{ text }</Typography>
+  )
+}
+export const Header = ({ uri }) => {
   const dispatch = useDispatch()
   const drawer = () => dispatch( toggleDrawer() )
-  const tabChange = ( e, tab ) => dispatch( selectTab( tab ))
-  const tab = useSelector( selectedTab )
 
   return (
     <AppBar>
@@ -27,9 +42,13 @@ export function Header({ props }) {
         >
           <MenuIcon />
         </IconButton>
-        <AtheleteTabs selected={ tab } onChange={ tabChange }/>
+        { titleHeader( uri ) }
       </Toolbar>
     </AppBar>
   )
+}
+
+Header.propTypes = {
+  uri: PropTypes.string
 }
 export default Header
