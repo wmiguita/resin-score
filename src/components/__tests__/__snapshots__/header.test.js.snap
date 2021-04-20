@@ -102,3 +102,53 @@ exports[`Header should render Header with Atheletes title 1`] = `
   </div>
 </header>
 `;
+
+exports[`Header should render Header with Atheletes title with / at end 1`] = `
+<header
+  className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4"
+>
+  <div
+    className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+  >
+    <button
+      aria-label="open drawer"
+      className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+          />
+        </svg>
+      </span>
+    </button>
+    <h1
+      className="MuiTypography-root MuiTypography-h6"
+    >
+      Atheletes
+    </h1>
+  </div>
+</header>
+`;

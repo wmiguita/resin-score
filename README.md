@@ -8,7 +8,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 * Material-UI
 
 # Last
-
+  error when using initialState no browser and ssr, lazyload from localstorage
 
 
 # ROADMAP ¯\\_(ツ)_/¯
@@ -33,3 +33,4 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
   * [Material-UI] (https://material-ui.com/getting-started/templates/ "Material-UI docs")
   * [Redux] (https://redux.js.org/tutorials/essentials/part-1-overview-concepts "Redux")
   * [Testing components connected with Redux] (https://www.robinwieruch.de/react-connected-component-test "Testing")
+  * [Store safely on localstorage] (https://medium.com/@trlogic/how-to-persist-redux-store-safely-with-using-local-storage-bfb1de783c46)

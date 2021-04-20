@@ -5,12 +5,13 @@ import { wrapComponent } from "mock-store"
 
 import Layout from "../layout"
 
+const pageProps = { location: { pathname: "/" } }
 let layout
 
 describe( "Layout", () => {
   it( "renders Layout with children", () => {
     const tree = renderer.create( wrapComponent (
-      <Layout><div>child</div></Layout>
+      <Layout { ...pageProps }><div>child</div></Layout>
     )).toJSON()
 
     expect( tree ).toMatchSnapshot()
@@ -18,7 +19,7 @@ describe( "Layout", () => {
 
   it( "renders Layout with props", () => {
     const propedLayout = renderer.create( wrapComponent(
-      <Layout test={ "test" }><div></div></Layout>
+      <Layout { ...pageProps }><div></div></Layout>
     )).toJSON()
 
     expect( propedLayout ).toMatchSnapshot()

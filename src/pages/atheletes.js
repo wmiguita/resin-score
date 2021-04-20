@@ -52,7 +52,7 @@ export default function AtheletesPage() {
             <AddIcon />
           </Fab>
         </Title>
-        <List>
+        <List suppressHydrationWarning={ true }>
           {
             list.map( athelete => {
               return (

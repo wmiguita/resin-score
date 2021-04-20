@@ -1,6 +1,7 @@
 import slice, {
   addAthelete,
-  atheleteList
+  atheleteList,
+  atheleteSlice
 } from "../atheleteSlice"
 
 describe( "atheleteSlice", () => {
@@ -13,6 +14,10 @@ describe( "atheleteSlice", () => {
     expect( result.list[ 0 ].name ).toEqual( newAthelete.name )
   })
 
+  it.skip( "should load atheletes from localstorage", () => {
+    console.log( "atheleteSlice.test atheleteSlice:", atheleteSlice )
+  })
+
   it.skip( "should not have colateral change on athelete", () => {
     const listed = new Athelete( { name: "listed athelete" } )
     const state = { atheleteSlice: { list: [ listed ] }}
@@ -23,4 +28,6 @@ describe( "atheleteSlice", () => {
 
     expect( listed.name ).not.toEqual( athelete.name )
   })
+
+
 })

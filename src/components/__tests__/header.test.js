@@ -18,5 +18,11 @@ describe( "Header", () => {
 
     expect( tree ).toMatchSnapshot()
   })
+
+  it( "should render Header with Atheletes title with / at end", () => {
+    const tree = renderer.create( wrapComponent( <Header uri={ ROUTES.ATHELETES + "/" } /> )).toJSON()
+
+    expect( tree ).toMatchSnapshot()
+  })
 })
 

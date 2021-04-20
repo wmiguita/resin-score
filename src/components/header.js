@@ -16,6 +16,7 @@ const titleHeader = uri => {
 
   switch( uri ) {
     case ROUTES.ATHELETES:
+    case `${ ROUTES.ATHELETES }/`:
       text = "Atheletes"
       break
 
