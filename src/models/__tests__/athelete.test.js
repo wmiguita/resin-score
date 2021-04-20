@@ -28,4 +28,21 @@ describe( "Athelete model", () => {
 
     expect( athelete.toJSON() ).toEqual( plain )
   })
+
+  it( "should get new athelete instance with null attrs as parameter", () => {
+    const plain = { id: "", name: "" }
+    const athelete = new Athelete()
+
+    expect( athelete ).toBeInstanceOf( Athelete )
+    expect( athelete.toJSON() ).toEqual( plain )
+  })
+
+  it( "should get athelete id comparison function", () => {
+    const a1 = new Athelete({ id: "id 1", name: "one" })
+    const a2 = new Athelete({ id: "id 2", name: "two" })
+    const array = [ a1, a2 ]
+    const found = array.find( Athelete.byId( a1.id ))
+
+    expect( found ).toEqual( a1 )
+  })
 })

@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { cloneDeep } from "lodash"
+import { Athelete } from "../models"
 
 const STORAGE_KEY = "atheletesSlice"
 const emptyState = {
@@ -13,19 +15,25 @@ export const atheleteSlice = createSlice({
     addAthelete: ( state, action ) => {
       state.list.push( action.payload )
       localStorage.setItem( STORAGE_KEY, JSON.stringify( state ))
+
+      return state
+    },
+    editAthelete: ( state, action ) => {
+      const updatedAthelete = action.payload
+      const athelete = state.list.find( Athelete.byId( updatedAthelete.id ))
+
+      if( athelete ) athelete.name = updatedAthelete.name
+
+      return state
     }
   },
   initialState
 });
-// exporting preloadedState
-export const preloadAtheletes = () => {
-  return
-}
 
 // exporting actions
-export const { addAthelete } = atheleteSlice.actions
+export const { addAthelete, editAthelete } = atheleteSlice.actions
 
 // exporting states
-export const atheleteList = state => state.atheleteSlice.list
+export const atheleteList = state => cloneDeep( state.atheleteSlice.list )
 
 export default atheleteSlice.reducer

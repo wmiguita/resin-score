@@ -8,7 +8,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 * Material-UI
 
 # Last
-  error when using initialState no browser and ssr, lazyload from localstorage
+  remove athelete and error handling
 
 
 # ROADMAP ¯\\_(ツ)_/¯

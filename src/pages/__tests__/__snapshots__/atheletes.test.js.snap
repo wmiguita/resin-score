@@ -44,10 +44,14 @@ exports[`Atheletes page renders athelete page on listing tab 1`] = `
             />
           </svg>
         </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
       </button>
     </h2>
     <ul
       className="MuiList-root MuiList-padding"
+      suppressHydrationWarning={true}
     />
   </div>
 </div>

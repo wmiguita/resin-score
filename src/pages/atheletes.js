@@ -14,10 +14,11 @@ import {
 import themeStyle from "../styles"
 import { Title } from "../components"
 import { AtheleteDialog } from "../components/atheletes"
-import { addAthelete, atheleteList } from "../slices"
+import { addAthelete, atheleteList, editAthelete } from "../slices"
+import { Athelete } from "../models"
 
 const _initialState = {
-  selectedId: null,
+  athelete: (new Athelete()).toJSON(),
   modalOpen: false
 }
 export default function AtheletesPage() {
@@ -26,28 +27,27 @@ export default function AtheletesPage() {
 
   const list = useSelector( atheleteList )
   const [ state, setState ] = useState( _initialState )
-  const onSubmit = ( athelete ) => {
-    dispatch( addAthelete( athelete.toJSON() ) )
+  const onSubmit = ( attrs ) => {
+    const action = attrs.id === state.athelete.id ? editAthelete( attrs ) : addAthelete( attrs )
+    dispatch( action )
     setState( _initialState )
   }
-  const openDialog = ( atheleteId ) => {
+  const openDialog = ( athelete ) => {
     const modalOpen = true
-    setState({ atheleteId, modalOpen })
+    setState({ athelete, modalOpen })
   }
-  const closeDialog = () => {
-    setState( _initialState )
-  }
+  const closeDialog = () => setState( _initialState )
 
   return (
     <Container>
       <Paper>
         <Title>
-          { "Athelete list" }
+          Athelete list
           <Fab
             color="primary"
             aria-label="add"
             size="small"
-            onClick={ openDialog.bind( null, state.atheleteId ) }
+            onClick={ openDialog.bind( null, state.athelete ) }
             className={ classes.addAction }>
             <AddIcon />
           </Fab>
@@ -61,7 +61,7 @@ export default function AtheletesPage() {
                   <ListItemSecondaryAction>
                     <IconButton
                       aria-label="edit"
-                      onClick={ openDialog.bind( null, athelete.id ) }>
+                      onClick={ openDialog.bind( null, athelete ) }>
                         <EditIcon />
                     </IconButton>
                     <IconButton aria-label="delete"><DeleteIcon /></IconButton>
@@ -71,10 +71,9 @@ export default function AtheletesPage() {
             })
           }
         </List>
-
         <AtheleteDialog
           open={ state.modalOpen }
-          atheleteId={ state.selectedId }
+          athelete={ state.athelete }
           onSubmit={ onSubmit }
           onClose={ closeDialog }/>
       </Paper>

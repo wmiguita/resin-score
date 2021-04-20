@@ -1,8 +1,10 @@
 import slice, {
   addAthelete,
   atheleteList,
-  atheleteSlice
+  atheleteSlice,
+  editAthelete
 } from "../atheleteSlice"
+import { Athelete } from "../../models"
 
 describe( "atheleteSlice", () => {
 
@@ -18,7 +20,7 @@ describe( "atheleteSlice", () => {
     console.log( "atheleteSlice.test atheleteSlice:", atheleteSlice )
   })
 
-  it.skip( "should not have colateral change on athelete", () => {
+  it( "should not have colateral change on athelete", () => {
     const listed = new Athelete( { name: "listed athelete" } )
     const state = { atheleteSlice: { list: [ listed ] }}
 
@@ -29,5 +31,18 @@ describe( "atheleteSlice", () => {
     expect( listed.name ).not.toEqual( athelete.name )
   })
 
+  it( "should update listed athelete name", () => {
+    const listed = new Athelete({ name: 'old name' })
+    const state = { list: [ listed ] }
+    const newName = new Athelete({ id: listed.id, name: 'new name' })
+    const result = slice( state, editAthelete( newName.toJSON() ))
 
+    expect( result.list[ 0 ].name ).toEqual( newName.name )
+  })
+
+  // TODO: way to handle errors
+  it( "should not throw error when edit athelete not on list", () => {
+    const state = { list: [] }
+    const result = slice( state, editAthelete({ id: "id not listed" }))
+  })
 })

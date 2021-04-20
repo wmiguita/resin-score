@@ -5,7 +5,8 @@ import AtheleteDialog from "../atheleteDialog"
 
 describe( "AtheleteDialog", () => {
   it( "should render AtheleteDialog", () => {
-    const tree = renderer.create( <AtheleteDialog open={ false }/> ).toJSON()
+    const athelete = {}
+    const tree = renderer.create( <AtheleteDialog athelete={ athelete } open={ false }/> ).toJSON()
 
     expect( tree ).toMatchSnapshot()
   })
