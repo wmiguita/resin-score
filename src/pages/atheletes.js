@@ -13,30 +13,42 @@ import {
 
 import themeStyle from "../styles"
 import { Title } from "../components"
-import { AtheleteDialog } from "../components/atheletes"
-import { addAthelete, atheleteList, editAthelete } from "../slices"
+import { AtheleteDialog, RemoveDialog } from "../components/atheletes"
+import { addAthelete, atheleteList, editAthelete, removeAthelete } from "../slices"
 import { Athelete } from "../models"
 
 const _initialState = {
   athelete: (new Athelete()).toJSON(),
-  modalOpen: false
+  formDialogOpen: false,
+  removeDialogOpen: false
 }
 export default function AtheletesPage() {
   const dispatch = useDispatch()
   const classes = themeStyle()
 
-  const list = useSelector( atheleteList )
+  const list = useSelector( atheleteList ) //list of atheletes from reducers
   const [ state, setState ] = useState( _initialState )
-  const onSubmit = ( attrs ) => {
+  const closeDialogs = () => setState( _initialState ) // close all dialog and reset athelete
+  const onSubmit = ( attrs ) => { // add or edit athelete
     const action = attrs.id === state.athelete.id ? editAthelete( attrs ) : addAthelete( attrs )
     dispatch( action )
-    setState( _initialState )
+    closeDialogs()
   }
-  const openDialog = ( athelete ) => {
-    const modalOpen = true
-    setState({ athelete, modalOpen })
+  const openFormDialog = ( athelete ) => { // open form dialog new or edit
+    const formDialogOpen = true
+    const newState = Object.assign( {}, state, { athelete, formDialogOpen })
+    setState( newState )
   }
-  const closeDialog = () => setState( _initialState )
+  const confirmRemoveDialog = ( athelete ) => {
+    const removeDialogOpen = true
+    const newState = Object.assign({}, state, { athelete, removeDialogOpen })
+    setState( newState )
+  }
+  const onCloseRemoveDialog = ( confirmation ) => {
+    if( confirmation )
+      dispatch( removeAthelete( state.athelete.id ))
+    closeDialogs()
+  }
 
   return (
     <Container>
@@ -47,7 +59,7 @@ export default function AtheletesPage() {
             color="primary"
             aria-label="add"
             size="small"
-            onClick={ openDialog.bind( null, state.athelete ) }
+            onClick={ openFormDialog.bind( null, state.athelete ) }
             className={ classes.addAction }>
             <AddIcon />
           </Fab>
@@ -61,10 +73,14 @@ export default function AtheletesPage() {
                   <ListItemSecondaryAction>
                     <IconButton
                       aria-label="edit"
-                      onClick={ openDialog.bind( null, athelete ) }>
+                      onClick={ openFormDialog.bind( null, athelete ) }>
                         <EditIcon />
                     </IconButton>
-                    <IconButton aria-label="delete"><DeleteIcon /></IconButton>
+                    <IconButton
+                      onClick={ confirmRemoveDialog.bind( null, athelete ) }
+                      aria-label="delete">
+                        <DeleteIcon />
+                      </IconButton>
                   </ListItemSecondaryAction>
                 </ListItem>
               )
@@ -72,10 +88,14 @@ export default function AtheletesPage() {
           }
         </List>
         <AtheleteDialog
-          open={ state.modalOpen }
+          open={ state.formDialogOpen }
           athelete={ state.athelete }
           onSubmit={ onSubmit }
-          onClose={ closeDialog }/>
+          onClose={ closeDialogs } />
+        <RemoveDialog
+          open={ state.removeDialogOpen }
+          athelete={ state.athelete }
+          onClose={ onCloseRemoveDialog } />
       </Paper>
     </Container>
   )

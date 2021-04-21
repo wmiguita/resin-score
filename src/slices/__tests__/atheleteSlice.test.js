@@ -2,7 +2,8 @@ import slice, {
   addAthelete,
   atheleteList,
   atheleteSlice,
-  editAthelete
+  editAthelete,
+  removeAthelete
 } from "../atheleteSlice"
 import { Athelete } from "../../models"
 
@@ -44,5 +45,13 @@ describe( "atheleteSlice", () => {
   it( "should not throw error when edit athelete not on list", () => {
     const state = { list: [] }
     const result = slice( state, editAthelete({ id: "id not listed" }))
+  })
+
+  it( "should remove athelete from", () => {
+    const listed = { id: "to be removed", name: "should be removed" }
+    const state = { list: [ listed ] }
+    const result = slice( state, removeAthelete( listed.id ))
+
+    expect( result.list.length ).toEqual( state.list.length - 1 )
   })
 })

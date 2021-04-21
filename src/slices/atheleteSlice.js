@@ -19,10 +19,19 @@ export const atheleteSlice = createSlice({
       return state
     },
     editAthelete: ( state, action ) => {
-      const updatedAthelete = action.payload
-      const athelete = state.list.find( Athelete.byId( updatedAthelete.id ))
+      const updatedAttrs = action.payload
+      const athelete = state.list.find( Athelete.byId( updatedAttrs.id ))
 
-      if( athelete ) athelete.name = updatedAthelete.name
+      if( athelete ) athelete.name = updatedAttrs.name
+
+      return state
+    },
+    removeAthelete: ( state, action ) => {
+      const removeId = action.payload
+      const athelete = state.list.find( Athelete.byId( removeId ) )
+      const idx = state.list.indexOf( athelete )
+
+      state.list.splice( idx, 1 )
 
       return state
     }
@@ -31,7 +40,7 @@ export const atheleteSlice = createSlice({
 });
 
 // exporting actions
-export const { addAthelete, editAthelete } = atheleteSlice.actions
+export const { addAthelete, editAthelete, removeAthelete } = atheleteSlice.actions
 
 // exporting states
 export const atheleteList = state => cloneDeep( state.atheleteSlice.list )
