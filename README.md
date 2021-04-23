@@ -8,7 +8,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 * Material-UI
 
 # Last
-  remove athelete and error handling
+  error handling and feedback
 
 
 # ROADMAP ¯\\_(ツ)_/¯
@@ -16,7 +16,6 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
   * CRUD athetes (WIP)
   * use header as contextualized tab menu for CRUD pages
   * intl8 :thinking:
-  * highlight selected page on sidemenu by url path
   * CRUD competition type (combined or single mode?)
   * CRUD for athetes score by modality
   * display knockout style for speed

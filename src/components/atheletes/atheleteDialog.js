@@ -12,8 +12,7 @@ import { Athelete } from "../../models"
 
 const _initialForm = { name: "" }
 
-export const AtheleteDialog = ( props ) => {
-  const { athelete, onClose, onSubmit, ...relayProps } = props
+export const AtheleteDialog = ({ athelete, onExited, onSubmit, ...relayProps }) => {
   const [ form, setForm ] = useState( athelete ||  _initialForm )
   const classes = themeStyle()
   const submitWrapper = ( e ) => {
@@ -22,9 +21,9 @@ export const AtheleteDialog = ( props ) => {
     onSubmit( new Athelete( attrs ).toJSON() )
     setForm( _initialForm )
   }
-  const closeWrapper = ( e ) => {
+  const exitedWrapper = ( e ) => {
     setForm( _initialForm )
-    return onClose( e )
+    return typeof onExited === "function" ? onExited( e ) : null
   }
   const setName = ( event ) => {
     const name = event.target.value
@@ -34,7 +33,7 @@ export const AtheleteDialog = ( props ) => {
   return (
     <Dialog
       title="Athelete subscription"
-      onClose={ closeWrapper }
+      onExited={ exitedWrapper }
       { ...relayProps }>
       <DialogTitle>Athelete subscription</DialogTitle>
       <DialogContent>
@@ -56,7 +55,7 @@ export const AtheleteDialog = ( props ) => {
         </form>
       </DialogContent>
       <DialogActions>
-        <Button variant="outlined" onClick={ closeWrapper }>Cancel</Button>
+        <Button variant="outlined" onClick={ relayProps.onClose }>Cancel</Button>
         <Button color="primary" variant="contained" type="submit" form="atheleteForm">OK</Button>
       </DialogActions>
     </Dialog>
