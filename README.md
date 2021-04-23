@@ -9,7 +9,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 
 # ROADMAP ¯\\_(ツ)_/¯
 
-  * use snackbar to CRUD feedback, with timer to hide
+  * bug edit then close clears name, returning empty string when not changing name
   * use header as contextualized tab menu for CRUD pages
   * intl8 :thinking:
   * CRUD competition type (combined or single mode?)

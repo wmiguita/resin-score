@@ -53,6 +53,12 @@ describe( "Feedback model", () => {
 
     expect( result.error ).toEqual( false )
   })
+
+  it( "should get Feedback json plain object", () => {
+    const result = new Feedback()
+
+    expect( result.toJSON() ).toBeDefined()
+  })
 })
 
 describe( "Success feedback", () => {
@@ -73,7 +79,7 @@ describe( "Fail Feedback", () => {
   it( "should get Fail feedback with default true on error attribute", () => {
     const result = new Fail()
 
-    expect( result.error ).toEqual( false )
+    expect( result.error ).toEqual( true )
   })
 
   it( "should ignore success true on args", () => {

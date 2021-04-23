@@ -14,6 +14,11 @@ export default class Feedback {
     }
   }
 
+  toJSON() {
+    const { message, error, success } = this
+    return { message, error, success }
+  }
+
   _withString( message ) {
     this.message = message
     this.success = true
@@ -36,6 +41,7 @@ export class Success extends Feedback {
 export class Fail extends Feedback {
   constructor( args ) {
     super( args )
+    this.error = true // overriding to prevent some confusion
     this.success = false // overriding to prevent some confusion
   }
 }

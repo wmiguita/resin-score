@@ -16,6 +16,12 @@ export const atheleteSlice = createSlice({
     addAthelete: ( state, action ) => {
       state.list.push( action.payload )
       localStorage.setItem( STORAGE_KEY, JSON.stringify( state ))
+      state.feedback = ( new Success( "Athelete added" )).toJSON()
+
+      return state
+    },
+    clearAtheleteFeedback: ( state ) => {
+      state.feedback = null
 
       return state
     },
@@ -26,29 +32,44 @@ export const atheleteSlice = createSlice({
 
         if( athelete ) athelete.name = updatedAttrs.name
         else throw new Error( `ID "${ athelete.id }" not found` )
+        localStorage.setItem( STORAGE_KEY, JSON.stringify( state ))
 
-        state.feedback = new Success( "Athelete updated" )
+        state.feedback = ( new Success( "Athelete updated" )).toJSON()
         return state
       } catch ( error ) {
-        state.feedback = new Fail( error.toString() )
+        state.feedback = ( new Fail( error.toString() )).toJSON()
         return state
       }
     },
     removeAthelete: ( state, action ) => {
-      const removeId = action.payload
-      const athelete = state.list.find( Athelete.byId( removeId ) )
-      const idx = state.list.indexOf( athelete )
+      try {
+        const removeId = action.payload
+        const athelete = state.list.find( Athelete.byId( removeId ) )
+        const idx = state.list.indexOf( athelete )
 
-      state.list.splice( idx, 1 )
+        if( idx >= 0 ) {
+          state.list.splice( idx, 1 )
+          localStorage.setItem( STORAGE_KEY, JSON.stringify( state ))
+          state.feedback = ( new Success( "Athelete removed" )).toJSON()
+        } else throw new Error( `ID "${ removeId }" not found` )
 
-      return state
+        return state
+      } catch ( error ) {
+        state.feedback = ( new Fail( error.message )).toJSON()
+        return state
+      }
     }
   },
   initialState
 });
 
 // exporting actions
-export const { addAthelete, editAthelete, removeAthelete } = atheleteSlice.actions
+export const {
+  addAthelete,
+  clearAtheleteFeedback,
+  editAthelete,
+  removeAthelete
+} = atheleteSlice.actions
 
 // exporting states
 export const atheleteList = state => cloneDeep( state.atheleteSlice.list )
