@@ -5,7 +5,7 @@ import slice, {
   editAthelete,
   removeAthelete
 } from "../atheleteSlice"
-import { Athelete } from "../../models"
+import { Athelete, Fail, Success } from "../../models"
 
 describe( "atheleteSlice", () => {
 
@@ -17,9 +17,7 @@ describe( "atheleteSlice", () => {
     expect( result.list[ 0 ].name ).toEqual( newAthelete.name )
   })
 
-  it.skip( "should load atheletes from localstorage", () => {
-    console.log( "atheleteSlice.test atheleteSlice:", atheleteSlice )
-  })
+  it.todo( "should load atheletes from localstorage" )
 
   it( "should not have colateral change on athelete", () => {
     const listed = new Athelete( { name: "listed athelete" } )
@@ -41,10 +39,20 @@ describe( "atheleteSlice", () => {
     expect( result.list[ 0 ].name ).toEqual( newName.name )
   })
 
-  // TODO: way to handle errors
-  it( "should not throw error when edit athelete not on list", () => {
+  it( "should give success feedback on update", () => {
+    const listed = new Athelete({ name: 'old name' })
+    const state = { list: [ listed ] }
+    const newName = new Athelete({ id: listed.id, name: 'new name' })
+    const result = slice( state, editAthelete( newName.toJSON() ))
+
+    expect( result.feedback ).toBeInstanceOf( Success )
+  })
+
+  it( "should get error feedback  when edit athelete not on list", () => {
     const state = { list: [] }
     const result = slice( state, editAthelete({ id: "id not listed" }))
+
+    expect( result.feedback ).toBeInstanceOf( Fail )
   })
 
   it( "should remove athelete from", () => {

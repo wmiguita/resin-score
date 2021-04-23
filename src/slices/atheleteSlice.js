@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { cloneDeep } from "lodash"
-import { Athelete } from "../models"
+import { Athelete, Fail, Success } from "../models"
 
 const STORAGE_KEY = "atheletesSlice"
 const emptyState = {
-  list: []
+  list: [],
+  feedback: null
 }
 const storageAtheletes = ( typeof localStorage !== 'undefined' ) ? localStorage.getItem( STORAGE_KEY ) : null
 const initialState = storageAtheletes ? JSON.parse( storageAtheletes ) : emptyState
@@ -19,12 +20,19 @@ export const atheleteSlice = createSlice({
       return state
     },
     editAthelete: ( state, action ) => {
-      const updatedAttrs = action.payload
-      const athelete = state.list.find( Athelete.byId( updatedAttrs.id ))
+      try {
+        const updatedAttrs = action.payload
+        const athelete = state.list.find( Athelete.byId( updatedAttrs.id ))
 
-      if( athelete ) athelete.name = updatedAttrs.name
+        if( athelete ) athelete.name = updatedAttrs.name
+        else throw new Error( `ID "${ athelete.id }" not found` )
 
-      return state
+        state.feedback = new Success( "Athelete updated" )
+        return state
+      } catch ( error ) {
+        state.feedback = new Fail( error.toString() )
+        return state
+      }
     },
     removeAthelete: ( state, action ) => {
       const removeId = action.payload
@@ -44,5 +52,6 @@ export const { addAthelete, editAthelete, removeAthelete } = atheleteSlice.actio
 
 // exporting states
 export const atheleteList = state => cloneDeep( state.atheleteSlice.list )
+export const atheleteFeedback = state => state.atheleteSlice.feedback
 
 export default atheleteSlice.reducer

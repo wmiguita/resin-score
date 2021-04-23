@@ -7,13 +7,9 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 * React, redux
 * Material-UI
 
-# Last
-  error handling and feedback
-
-
 # ROADMAP ¯\\_(ツ)_/¯
 
-  * CRUD athetes (WIP)
+  * use snackbar to CRUD feedback, with timer to hide
   * use header as contextualized tab menu for CRUD pages
   * intl8 :thinking:
   * CRUD competition type (combined or single mode?)
