@@ -9,8 +9,7 @@ SPA to keep sports climbing score from athletes for speed, boulder, lead and com
 
 # ROADMAP ¯\\_(ツ)_/¯
 
-  * bug edit then close clears name, returning empty string when not changing name
-  * use header as contextualized tab menu for CRUD pages
+  * use header as contextualized tab menu for tournament modalities
   * intl8 :thinking:
   * CRUD competition type (combined or single mode?)
   * CRUD for athetes score by modality

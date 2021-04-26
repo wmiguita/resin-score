@@ -41,7 +41,8 @@ export default function AtheletesPage() {
   // add or edit athelete
   const onSubmit = ( attrs ) => {
     const action = attrs.id === state.athelete.id ? editAthelete( attrs ) : addAthelete( attrs )
-    dispatch( action )
+    if( attrs.name )
+      dispatch( action )
     closeDialogs()
   }
   // open form dialog new or edit
